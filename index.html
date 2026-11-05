@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srawung Brand Hub - Solusi Branding UMKM DIY</title>
+    <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#142E21',      /* Hijau Tua Utama */
+                            darker: '#0D2016',    /* Hijau Tua Gelap */
+                            medium: '#244836',    /* Hijau Aksens */
+                            cream: '#F9F6F0',     /* Krem Utama Background */
+                            creamLight: '#FFFDF9',/* Krem Muda Card */
+                            creamBorder: '#E6DFC8',/* Border Krem */
+                            accent: '#D4A359',    /* Emas/Kuning Aksens */
+                            accentHover: '#B8863B',
+                            textDark: '#1C2922',  /* Teks Utama */
+                            textMuted: '#586A60'  /* Teks Sekunder */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-header {
+            background: rgba(20, 46, 33, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #142E21 0%, #1E4230 60%, #0D2016 100%);
+        }
+        /* Custom Before-After Slider */
+        .ba-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            user-select: none;
+        }
+        .ba-slider {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 50%;
+            overflow: hidden;
+        }
+        .ba-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: #D4A359;
+            cursor: ew-resize;
+            transform: translateX(-50%);
+        }
+        .ba-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #D4A359;
+            color: #142E21;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body class="font-sans bg-brand-cream text-brand-textDark antialiased selection:bg-brand-accent selection:text-white">
+
+    <!-- NAVIGATION HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-header text-white transition-all duration-300 border-b border-brand-medium/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo & Brand Name -->
+                <a href="#beranda" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-brand-accent flex items-center justify-center text-brand-dark font-black text-xl shadow-lg transform group-hover:rotate-6 transition-transform">
+                        S
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold tracking-tight text-white block">Srawung</span>
+                        <span class="text-xs uppercase tracking-widest text-brand-accent font-semibold block -mt-1">Brand Hub</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-6 text-sm font-medium">
+                    <a href="#beranda" class="hover:text-brand-accent transition-colors py-1">Beranda</a>
+                    <a href="#konsultasi-instan" class="hover:text-brand-accent transition-colors py-1 flex items-center gap-1">
+                        <i class="fa-solid fa-wand-magic-sparkles text-brand-accent"></i>
+                        <span>Konsultasi Instan</span>
+                    </a>
+                    <a href="#layanan" class="hover:text-brand-accent transition-colors py-1">Layanan</a>
+                    <a href="#kalkulator" class="hover:text-brand-accent transition-colors py-1">Kalkulator Biaya</a>
+                    <a href="#before-after" class="hover:text-brand-accent transition-colors py-1">Transformasi Visual</a>
+                    <a href="#alur-kerja" class="hover:text-brand-accent transition-colors py-1">Alur Kerja</a>
+                    <a href="#faq" class="hover:text-brand-accent transition-colors py-1">FAQ</a>
+                </nav>
+
+                <!-- Header CTA Button -->
+                <div class="hidden lg:flex items-center gap-3">
+                    <a href="#konsultasi-instan" class="bg-brand-accent hover:bg-brand-accentHover text-brand-dark font-bold px-5 py-2.5 rounded-full text-sm shadow-md transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+                        <i class="fa-solid fa-comments"></i>
+                        <span>Coba Konsultasi Web</span>
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="lg:hidden">
+                    <button type="button" id="mobile-menu-btn" class="p-2 rounded-lg text-gray-300 hover:text-white hover:bg-brand-medium focus:outline-none" aria-label="Toggle Menu">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div class="hidden lg:hidden bg-brand-darker border-b border-brand-medium px-4 pt-2 pb-6 space-y-2 text-sm" id="mobile-menu">
+            <a href="#beranda" class="mobile-nav-link block px-3 py-2 rounded-md font-medium text-gray-200 hover:bg-brand-medium">Beranda</a>
+            <a href="#konsultasi-instan" class="mobile-nav-link block px-3 py-2 rounded-md font-bold text-brand-accent hover:bg-brand-medium">
+                <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Konsultasi Instan (Tanpa Login)
+            </a>
+            <a href="#layanan" class="mobile-nav-link block px-3 py-2 rounded-md font-medium text-gray-200 hover:bg-brand-medium">Layanan Branding</a>
+            <a href="#kalkulator" class="mobile-nav-link block px-3 py-2 rounded-md font-medium text-gray-200 hover:bg-brand-medium">Kalkulator Biaya Kustom</a>
+            <a href="#before-after" class="mobile-nav-link block px-3 py-2 rounded-md font-medium text-gray-200 hover:bg-brand-medium">Transformasi Before & After</a>
+            <a href="#alur-kerja" class="mobile-nav-link block px-3 py-2 rounded-md font-medium text-gray-200 hover:bg-brand-medium">Alur Kerja 4 Langkah</a>
+            <a href="#faq" class="mobile-nav-link block px-3 py-2 rounded-md font-medium text-gray-200 hover:bg-brand-medium">FAQ & Tanya Jawab</a>
+            <div class="pt-2">
+                <a href="#pemesanan" class="mobile-nav-link w-full text-center bg-brand-accent text-brand-dark font-bold py-3 rounded-lg block">
+                    Formulir / Janji On-Site DIY
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="pt-20">
+
+        <!-- HERO SECTION -->
+        <section id="beranda" class="hero-gradient text-white py-16 lg:py-28 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-medium/60 border border-brand-accent/40 text-brand-accent text-xs sm:text-sm font-semibold">
+                            <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
+                            Pendamping Branding UMKM Istimewa Yogyakarta
+                        </div>
+                        
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                            Bersama Membangun Merek, <span class="text-brand-accent font-serif italic font-normal">Mengembangkan</span> UMKM Lokal.
+                        </h1>
+                        
+                        <p class="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                            Platform layanan branding terpadu khusus sektor <strong>Kuliner, Fashion, dan Kerajinan</strong> di DIY. Dapatkan rekomendasi strategi visual instan di website tanpa perlu antre atau login!
+                        </p>
+                        
+                        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                            <a href="#konsultasi-instan" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-accent hover:bg-brand-accentHover text-brand-dark font-bold text-base shadow-xl transition-all transform hover:-translate-y-1 text-center flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-bolt"></i>
+                                <span>Coba Konsultasi Instan Di Sini</span>
+                            </a>
+                            <a href="#kalkulator" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-medium/50 hover:bg-brand-medium text-white border border-white/20 font-semibold text-base transition-all text-center">
+                                Hitung Estimasi Biaya
+                            </a>
+                        </div>
+
+                        <!-- Mini Stats -->
+                        <div class="pt-8 border-t border-white/10 grid grid-cols-3 gap-4 text-center lg:text-left">
+                            <div>
+                                <p class="text-2xl sm:text-3xl font-bold text-brand-accent">100%</p>
+                                <p class="text-xs sm:text-sm text-gray-300">Konsultasi Web Instan</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl sm:text-3xl font-bold text-white">Transparan</p>
+                                <p class="text-xs sm:text-sm text-gray-300">Kalkulator Harga Kustom</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl sm:text-3xl font-bold text-brand-accent">DIY</p>
+                                <p class="text-xs sm:text-sm text-gray-300">Fokus Area Yogyakarta</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Hero Interactive Badge -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-brand-creamLight text-brand-textDark p-6 sm:p-8 rounded-3xl shadow-2xl border-4 border-brand-accent/30 space-y-5">
+                            <div class="flex items-center justify-between border-b border-gray-200 pb-3">
+                                <span class="text-xs font-bold uppercase tracking-wider text-brand-medium">
+                                    <i class="fa-solid fa-sparkles text-brand-accent mr-1"></i> Asisten Visual Srawung
+                                </span>
+                                <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full">Bebas Login</span>
+                            </div>
+                            <div class="text-center py-2">
+                                <div class="w-16 h-16 rounded-2xl bg-brand-dark text-brand-accent mx-auto flex items-center justify-center text-3xl mb-3 shadow-md">
+                                    <i class="fa-solid fa-comments"></i>
+                                </div>
+                                <h3 class="font-bold text-lg text-brand-dark">Bingung Mulai Dari Mana?</h3>
+                                <p class="text-xs text-brand-textMuted mt-1">Gunakan fitur konsultasi otomatis di bawah untuk mendapatkan rekomendasi paket & saran strategi dalam 30 detik!</p>
+                            </div>
+                            <a href="#konsultasi-instan" class="block w-full py-3 bg-brand-dark hover:bg-brand-medium text-white text-center rounded-xl font-bold text-sm transition-colors shadow">
+                                Mulai Diagnosa Merek Anda &rarr;
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FITUR UTAMA 1: KONSULTASI INSTAN TANPA LOGIN WA (INTERACTIVE BRANDING ASSISTANT) -->
+        <section id="konsultasi-instan" class="py-20 bg-white relative">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="px-3.5 py-1.5 rounded-full bg-brand-accent/20 text-brand-dark text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Tanpa Login & Langsung Di Layar
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mt-3 mb-3">
+                        Asisten Konsultasi Branding Instan
+                    </h2>
+                    <p class="text-brand-textMuted text-sm sm:text-base">
+                        Pilih kondisi usaha Anda saat ini. Sistem kami akan langsung memberikan rekomendasi solusi, proyeksi waktu pengerjaan, dan saran strategi awal tanpa perlu masuk ke WhatsApp terlebih dahulu.
+                    </p>
+                </div>
+
+                <!-- Interactive Assistant Tool Box -->
+                <div class="bg-brand-cream border border-brand-creamBorder rounded-3xl p-6 sm:p-10 shadow-lg">
+                    
+                    <form id="instantConsultForm" onsubmit="generateInstantDiagnosis(event)" class="space-y-6">
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                            <!-- Question 1: Sektor Usaha -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-brand-dark mb-2">
+                                    1. Sektor Usaha <span class="text-red-500">*</span>
+                                </label>
+                                <select id="diagSektor" required class="w-full p-3 rounded-xl border border-brand-creamBorder bg-white text-sm focus:border-brand-accent outline-none">
+                                    <option value="" disabled selected>-- Pilih Sektor --</option>
+                                    <option value="kuliner">Kuliner (Makanan/Minuman)</option>
+                                    <option value="fashion">Fashion & Wastra Batik</option>
+                                    <option value="kerajinan">Kerajinan Tangan / Kriya</option>
+                                    <option value="lainnya">Lainnya / Umum</option>
+                                </select>
+                            </div>
+
+                            <!-- Question 2: Kendala Utama -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-brand-dark mb-2">
+                                    2. Kendala Utama <span class="text-red-500">*</span>
+                                </label>
+                                <select id="diagKendala" required class="w-full p-3 rounded-xl border border-brand-creamBorder bg-white text-sm focus:border-brand-accent outline-none">
+                                    <option value="" disabled selected>-- Pilih Kendala --</option>
+                                    <option value="belum_ada_logo">Belum punya logo / identitas</option>
+                                    <option value="kemasan_biasa">Produk bagus tapi kemasan seadanya</option>
+                                    <option value="konten_sepi">Sosmed sepi / foto produk kurang menarik</option>
+                                    <option value="rebranding">Ingin naik kelas / Re-branding total</option>
+                                </select>
+                            </div>
+
+                            <!-- Question 3: Alokasi Budget -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-brand-dark mb-2">
+                                    3. Kisaran Budget UMKM <span class="text-red-500">*</span>
+                                </label>
+                                <select id="diagBudget" required class="w-full p-3 rounded-xl border border-brand-creamBorder bg-white text-sm focus:border-brand-accent outline-none">
+                                    <option value="" disabled selected>-- Pilih Budget --</option>
+                                    <option value="hemat">Rp 300rb - Rp 500rb (Hemat)</option>
+                                    <option value="sedang">Rp 700rb - Rp 1jt (Standard)</option>
+                                    <option value="lengkap">Di atas Rp 1.5jt (Lengkap)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="text-center pt-2">
+                            <button type="submit" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-brand-dark hover:bg-brand-medium text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 mx-auto">
+                                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                                <span>Dapatkan Analisis & Rekomendasi Instan</span>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Real-Time Output Diagnosis Box -->
+                    <div id="diagnosisResult" class="hidden mt-8 border-t border-brand-creamBorder pt-8">
+                        <div class="bg-white rounded-2xl p-6 sm:p-8 border-2 border-brand-accent shadow-md space-y-6">
+                            
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-100 pb-4">
+                                <div>
+                                    <span class="text-[10px] font-mono bg-brand-cream px-2.5 py-1 rounded-md text-brand-dark uppercase font-bold">Hasil Analisis Otomatis</span>
+                                    <h3 class="text-xl font-bold text-brand-dark mt-1" id="resTitle">Rekomendasi Paket Srawung</h3>
+                                </div>
+                                <div class="text-right sm:text-right">
+                                    <span class="text-xs text-brand-textMuted">Proyeksi Pengerjaan:</span>
+                                    <p class="text-sm font-bold text-brand-dark" id="resWaktu">3 - 5 Hari Kerja</p>
+                                </div>
+                            </div>
+
+                            <!-- Detailed Suggestions Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-brand-cream/50 p-4 rounded-xl border border-brand-creamBorder">
+                                    <h4 class="font-bold text-sm text-brand-dark mb-2 flex items-center gap-2">
+                                        <i class="fa-solid fa-box-open text-brand-accent"></i> Paket Yang Direkomendasikan
+                                    </h4>
+                                    <p class="text-xs text-brand-textDark leading-relaxed" id="resPaketText"></p>
+                                </div>
+
+                                <div class="bg-brand-cream/50 p-4 rounded-xl border border-brand-creamBorder">
+                                    <h4 class="font-bold text-sm text-brand-dark mb-2 flex items-center gap-2">
+                                        <i class="fa-solid fa-lightbulb text-brand-accent"></i> Saran Strategi Visual Awal
+                                    </h4>
+                                    <p class="text-xs text-brand-textDark leading-relaxed" id="resStrategiText"></p>
+                                </div>
+                            </div>
+
+                            <!-- Optional Forward to WA Action -->
+                            <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+                                <div class="text-emerald-900">
+                                    <strong class="block text-sm">Puas dengan rekomendasi ini?</strong>
+                                    <span>Anda bisa memilih untuk meneruskan hasil analisis ini ke tim desainer Srawung via WA untuk diproses, atau cukup simpan sebagai acuan.</span>
+                                </div>
+                                <button onclick="forwardDiagnosisToWA()" class="w-full sm:w-auto px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg transition-colors flex items-center justify-center gap-2 flex-shrink-0">
+                                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                                    <span>LanjutDiskusi via WA (Opsional)</span>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FITUR UTAMA 2: INTERACTIVE PRICING & FEATURE ESTIMATOR (KALKULATOR BIAYA KUSTOM) -->
+        <section id="kalkulator" class="py-20 bg-brand-cream border-y border-brand-creamBorder">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="px-3.5 py-1.5 rounded-full bg-brand-medium/10 text-brand-dark text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-calculator mr-1"></i> Transparan & Bebas Pilih
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mt-3 mb-3">
+                        Kalkulator Simulasi Biaya Kustom
+                    </h2>
+                    <p class="text-brand-textMuted text-sm sm:text-base">
+                        Centang item layanan spesifik yang dibutuhkan usaha Anda dan lihat total kalkulasi biaya secara langsung tanpa biaya tersembunyi.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    
+                    <!-- Left: Checklist Options -->
+                    <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-brand-creamBorder shadow-sm space-y-4">
+                        <h3 class="font-bold text-lg text-brand-dark border-b border-gray-100 pb-3">Pilih Komponen Layanan:</h3>
+                        
+                        <div class="space-y-3" id="calcOptionsContainer">
+                            <!-- Option Item 1 -->
+                            <label class="flex items-center justify-between p-3.5 rounded-xl border border-gray-200 hover:border-brand-accent cursor-pointer transition-colors">
+                                <div class="flex items-center space-x-3">
+                                    <input type="checkbox" data-name="Desain Logo Utama (Master File)" data-price="350000" onchange="calculateTotal()" class="calc-checkbox w-4 h-4 text-brand-dark rounded border-gray-300 focus:ring-brand-accent">
+                                    <span class="text-sm font-semibold text-brand-dark">Desain Logo Utama & Master File Vector</span>
+                                </div>
+                                <span class="text-xs font-bold text-brand-medium">Rp 350.000</span>
+                            </label>
+
+                            <!-- Option Item 2 -->
+                            <label class="flex items-center justify-between p-3.5 rounded-xl border border-gray-200 hover:border-brand-accent cursor-pointer transition-colors">
+                                <div class="flex items-center space-x-3">
+                                    <input type="checkbox" data-name="Desain Stiker/Label Kemasan (1 Varian)" data-price="200000" onchange="calculateTotal()" class="calc-checkbox w-4 h-4 text-brand-dark rounded border-gray-300 focus:ring-brand-accent">
+                                    <span class="text-sm font-semibold text-brand-dark">Desain Stiker / Label Kemasan (1 Varian)</span>
+                                </div>
+                                <span class="text-xs font-bold text-brand-medium">+ Rp 200.000</span>
+                            </label>
+
+                            <!-- Option Item 3 -->
+                            <label class="flex items-center justify-between p-3.5 rounded-xl border border-gray-200 hover:border-brand-accent cursor-pointer transition-colors">
+                                <div class="flex items-center space-x-3">
+                                    <input type="checkbox" data-name="Tambahan Varian Kemasan Lain" data-price="100000" onchange="calculateTotal()" class="calc-checkbox w-4 h-4 text-brand-dark rounded border-gray-300 focus:ring-brand-accent">
+                                    <span class="text-sm font-semibold text-brand-dark">Tambahan Varian Kemasan (Rasa/Ukuran Baru)</span>
+                                </div>
+                                <span class="text-xs font-bold text-brand-medium">+ Rp 100.000</span>
+                            </label>
+
+                            <!-- Option Item 4 -->
+                            <label class="flex items-center justify-between p-3.5 rounded-xl border border-gray-200 hover:border-brand-accent cursor-pointer transition-colors">
+                                <div class="flex items-center space-x-3">
+                                    <input type="checkbox" data-name="E-Katalog Digital PDF (s/d 10 Produk)" data-price="250000" onchange="calculateTotal()" class="calc-checkbox w-4 h-4 text-brand-dark rounded border-gray-300 focus:ring-brand-accent">
+                                    <span class="text-sm font-semibold text-brand-dark">E-Katalog Digital PDF (s/d 10 Produk)</span>
+                                </div>
+                                <span class="text-xs font-bold text-brand-medium">+ Rp 250.000</span>
+                            </label>
+
+                            <!-- Option Item 5 -->
+                            <label class="flex items-center justify-between p-3.5 rounded-xl border border-gray-200 hover:border-brand-accent cursor-pointer transition-colors">
+                                <div class="flex items-center space-x-3">
+                                    <input type="checkbox" data-name="Foto Studio Produk (5 Foto Retouched)" data-price="350000" onchange="calculateTotal()" class="calc-checkbox w-4 h-4 text-brand-dark rounded border-gray-300 focus:ring-brand-accent">
+                                    <span class="text-sm font-semibold text-brand-dark">Foto Studio Produk (5 Foto High Res)</span>
+                                </div>
+                                <span class="text-xs font-bold text-brand-medium">+ Rp 350.000</span>
+                            </label>
+
+                            <!-- Option Item 6 -->
+                            <label class="flex items-center justify-between p-3.5 rounded-xl border border-gray-200 hover:border-brand-accent cursor-pointer transition-colors">
+                                <div class="flex items-center space-x-3">
+                                    <input type="checkbox" data-name="Template Konten Feed Instagram (6 Grid Canva)" data-price="200000" onchange="calculateTotal()" class="calc-checkbox w-4 h-4 text-brand-dark rounded border-gray-300 focus:ring-brand-accent">
+                                    <span class="text-sm font-semibold text-brand-dark">Template Feeds Instagram (6 Design Grid Canva)</span>
+                                </div>
+                                <span class="text-xs font-bold text-brand-medium">+ Rp 200.000</span>
+                            </label>
+
+                            <!-- Option Item 7 -->
+                            <label class="flex items-center justify-between p-3.5 rounded-xl border border-gray-200 hover:border-brand-accent cursor-pointer transition-colors">
+                                <div class="flex items-center space-x-3">
+                                    <input type="checkbox" data-name="Pendampingan Pemasaran (1 Bulan)" data-price="300000" onchange="calculateTotal()" class="calc-checkbox w-4 h-4 text-brand-dark rounded border-gray-300 focus:ring-brand-accent">
+                                    <span class="text-sm font-semibold text-brand-dark">Pendampingan Strategi Promosi (1 Bulan)</span>
+                                </div>
+                                <span class="text-xs font-bold text-brand-medium">+ Rp 300.000</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Right: Summary Live Calculation Box -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-brand-dark text-white p-6 sm:p-8 rounded-3xl shadow-xl border border-brand-medium sticky top-24 space-y-6">
+                            <h3 class="text-lg font-bold border-b border-brand-medium pb-3 flex items-center justify-between">
+                                <span>Ringkasan Estimasi</span>
+                                <i class="fa-solid fa-receipt text-brand-accent"></i>
+                            </h3>
+
+                            <div class="min-h-[120px]">
+                                <ul id="selectedItemsList" class="space-y-2 text-xs text-gray-300">
+                                    <li class="italic text-gray-400">Belum ada item yang dipilih. Silakan centang opsi di samping.</li>
+                                </ul>
+                            </div>
+
+                            <div class="border-t border-brand-medium pt-4">
+                                <span class="text-xs text-gray-300">Total Perkiraan Biaya:</span>
+                                <div class="text-3xl font-extrabold text-brand-accent mt-1" id="calcTotalDisplay">
+                                    Rp 0
+                                </div>
+                                <span class="text-[10px] text-gray-400 block mt-1">*Harga transparan tanpa biaya tambahan tersembunyi.</span>
+                            </div>
+
+                            <button onclick="applyCustomCalcToForm()" class="w-full py-3.5 bg-brand-accent hover:bg-brand-accentHover text-brand-dark font-extrabold rounded-xl transition-all shadow-md text-center text-sm">
+                                Pakai Rincian Ini Ke Formulir &rarr;
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FITUR UTAMA 3: SHOWCASE SEBELUM & SESUDAH (BEFORE & AFTER SLIDER) -->
+        <section id="before-after" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="px-3.5 py-1.5 rounded-full bg-brand-accent/20 text-brand-dark text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-sliders mr-1"></i> Transformasi Merek Realistis
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mt-3 mb-3">
+                        Komparasi Sebelum & Sesudah Branding
+                    </h2>
+                    <p class="text-brand-textMuted text-sm sm:text-base">
+                        Geser garis tengah pada gambar di bawah untuk melihat perbedaan kualitas tampilan visual produk UMKM sebelum dan sesudah diredesain oleh Srawung Brand Hub.
+                    </p>
+                </div>
+
+                <!-- Interactive Before After Component Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    
+                    <!-- Showcase Item 1: Kuliner Keripik -->
+                    <div class="bg-brand-creamLight p-6 rounded-3xl border border-brand-creamBorder shadow-sm space-y-4">
+                        <div class="flex justify-between items-center text-xs font-bold">
+                            <span class="text-brand-dark"><i class="fa-solid fa-utensils mr-1"></i> Sektor Kuliner</span>
+                            <span class="text-amber-800 bg-amber-100 px-2.5 py-0.5 rounded-full">Kemas Keripik Singkong</span>
+                        </div>
+
+                        <!-- Interactive Slider Box 1 -->
+                        <div class="ba-container h-72 border border-brand-creamBorder shadow-inner relative">
+                            <!-- AFTER (New Design) Background -->
+                            <div class="absolute inset-0 bg-gradient-to-br from-brand-dark to-brand-medium flex flex-col justify-center items-center text-white text-center p-6">
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-brand-accent mb-2">[ SESUDAH - Re-Design Srawung ]</span>
+                                <div class="w-16 h-16 rounded-full bg-brand-accent text-brand-dark flex items-center justify-center text-2xl font-bold mb-2 shadow-lg">
+                                    <i class="fa-solid fa-cookie-bite"></i>
+                                </div>
+                                <h4 class="font-serif text-xl font-bold">Singkong Renyah Mbok Sri</h4>
+                                <p class="text-xs text-gray-200 mt-1">Kemasan Standing Pouch Foil Waterproof, Zipper, Seal Rapi & Nutrisi</p>
+                            </div>
+
+                            <!-- BEFORE (Old Design) Overlay Slider -->
+                            <div class="ba-slider bg-stone-300 flex flex-col justify-center items-center text-stone-800 text-center p-6" id="sliderOverlay1">
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-stone-600 mb-2">[ SEBELUM ]</span>
+                                <div class="w-16 h-16 rounded-full bg-stone-400 text-stone-700 flex items-center justify-center text-2xl font-bold mb-2">
+                                    <i class="fa-solid fa-box-open"></i>
+                                </div>
+                                <h4 class="font-sans text-sm font-bold">Keripik Singkong</h4>
+                                <p class="text-[11px] text-stone-600 mt-1">Plastik Bening Biasa, Stepler Manual, Tanpa Informasi Komposisi</p>
+                            </div>
+
+                            <!-- Handle -->
+                            <div class="ba-handle" id="sliderHandle1" style="left: 50%;">
+                                <div class="ba-button"><i class="fa-solid fa-code-compare"></i></div>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-brand-textMuted leading-relaxed">
+                            <strong>Dampak Hasil:</strong> Kemasan foil hampa udara tidak hanya menjaga kerenyahan produk lebih lama, tapi juga membuat toko oleh-oleh dan minimarket mau menerima konsinyasi produk.
+                        </p>
+                    </div>
+
+                    <!-- Showcase Item 2: Fashion Batik -->
+                    <div class="bg-brand-creamLight p-6 rounded-3xl border border-brand-creamBorder shadow-sm space-y-4">
+                        <div class="flex justify-between items-center text-xs font-bold">
+                            <span class="text-brand-dark"><i class="fa-solid fa-shirt mr-1"></i> Sektor Fashion</span>
+                            <span class="text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full">Identitas & Hangtag Batik</span>
+                        </div>
+
+                        <!-- Interactive Slider Box 2 -->
+                        <div class="ba-container h-72 border border-brand-creamBorder shadow-inner relative">
+                            <!-- AFTER (New Design) Background -->
+                            <div class="absolute inset-0 bg-gradient-to-br from-emerald-950 to-teal-900 flex flex-col justify-center items-center text-white text-center p-6">
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-emerald-300 mb-2">[ SESUDAH - Re-Design Srawung ]</span>
+                                <div class="w-16 h-16 rounded-full bg-emerald-700 text-brand-accent flex items-center justify-center text-2xl font-bold mb-2 shadow-lg">
+                                    <i class="fa-solid fa-vest"></i>
+                                </div>
+                                <h4 class="font-serif text-xl font-bold">Wastra Kencana Jogja</h4>
+                                <p class="text-xs text-emerald-100 mt-1">Hangtag Thick Kraft, Logo Emboss Gold, & Story Card Asal Motif Batik</p>
+                            </div>
+
+                            <!-- BEFORE (Old Design) Overlay Slider -->
+                            <div class="ba-slider bg-gray-200 flex flex-col justify-center items-center text-gray-700 text-center p-6" id="sliderOverlay2">
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-gray-500 mb-2">[ SEBELUM ]</span>
+                                <div class="w-16 h-16 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center text-2xl font-bold mb-2">
+                                    <i class="fa-solid fa-tag"></i>
+                                </div>
+                                <h4 class="font-sans text-sm font-bold">Batik Solo-Jogja</h4>
+                                <p class="text-[11px] text-gray-500 mt-1">Label Kertas HVS Dipotong Manual, Font Standar Komputer</p>
+                            </div>
+
+                            <!-- Handle -->
+                            <div class="ba-handle" id="sliderHandle2" style="left: 50%;">
+                                <div class="ba-button"><i class="fa-solid fa-code-compare"></i></div>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-brand-textMuted leading-relaxed">
+                            <strong>Dampak Hasil:</strong> Penggunaan hangtag premium berlatar cerita budaya menaikkan persepsi harga produk (*perceived value*) sehingga layak dijual dengan harga lebih tinggi.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FITUR UTAMA 4: ALUR KERJA 4 LANGKAH (STEP-BY-STEP WORKFLOW) -->
+        <section id="alur-kerja" class="py-20 bg-brand-dark text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="px-3.5 py-1.5 rounded-full bg-brand-medium/60 border border-brand-accent/30 text-brand-accent text-xs font-bold uppercase tracking-wider">
+                        Transparan & Terstruktur
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 mb-3">
+                        Alur Kerja 4 Langkah Srawung
+                    </h2>
+                    <p class="text-gray-300 text-sm sm:text-base">
+                        Proses pengerjaan dirancang secara jelas agar pemilik UMKM tenang dan paham perkembangan proyek dari awal hingga selesai.
+                    </p>
+                </div>
+
+                <!-- 4 Steps Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+                    
+                    <!-- Step 1 -->
+                    <div class="bg-brand-darker p-6 rounded-2xl border border-brand-medium relative space-y-3">
+                        <div class="w-10 h-10 rounded-xl bg-brand-accent text-brand-dark flex items-center justify-center font-black text-lg">
+                            01
+                        </div>
+                        <h4 class="font-bold text-lg text-white">Konsultasi & Briefing</h4>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Diskusi awal mengenai produk, target pembeli, serta referensi gaya visual yang diinginkan (via web, WA, atau temu tatap muka DIY).
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="bg-brand-darker p-6 rounded-2xl border border-brand-medium relative space-y-3">
+                        <div class="w-10 h-10 rounded-xl bg-brand-accent text-brand-dark flex items-center justify-center font-black text-lg">
+                            02
+                        </div>
+                        <h4 class="font-bold text-lg text-white">Konfirmasi & DP</h4>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Penyepakatan paket/kustomisasi harga transparan serta pembayaran DP (Uang Muka 50%) untuk memulai produksi desain.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="bg-brand-darker p-6 rounded-2xl border border-brand-medium relative space-y-3">
+                        <div class="w-10 h-10 rounded-xl bg-brand-accent text-brand-dark flex items-center justify-center font-black text-lg">
+                            03
+                        </div>
+                        <h4 class="font-bold text-lg text-white">Eksekusi & Revisi</h4>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Tim desainer membuat draf konsep awal. Klien memberikan masukan & revisi hingga hasil sesuai kesepakatan.
+                        </p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="bg-brand-darker p-6 rounded-2xl border border-brand-medium relative space-y-3">
+                        <div class="w-10 h-10 rounded-xl bg-brand-accent text-brand-dark flex items-center justify-center font-black text-lg">
+                            04
+                        </div>
+                        <h4 class="font-bold text-lg text-white">Penyerahan Master File</h4>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Pelunasan sisa tagihan dan penyerahan seluruh file master siap cetak (AI, PNG HD, PDF vector) serta panduan merek.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- LAYANAN BRANDING SECTION (RINGKASAN SRA WUNG) -->
+        <section id="layanan" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="px-3.5 py-1.5 rounded-full bg-brand-cream text-brand-dark text-xs font-bold uppercase tracking-wider">
+                        Cakupan Penuh
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mt-3 mb-4">
+                        Layanan Branding Terpadu Srawung
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-brand-cream p-6 rounded-2xl border border-brand-creamBorder">
+                        <i class="fa-solid fa-vector-square text-3xl text-brand-dark mb-4"></i>
+                        <h3 class="font-bold text-lg text-brand-dark mb-2">Logo & Identitas Visual</h3>
+                        <p class="text-xs text-brand-textMuted leading-relaxed">Konsep logo unik, makna mendalam, palet warna, serta tipografi yang fleksibel untuk berbagai media.</p>
+                    </div>
+                    <div class="bg-brand-cream p-6 rounded-2xl border border-brand-creamBorder">
+                        <i class="fa-solid fa-box-open text-3xl text-brand-dark mb-4"></i>
+                        <h3 class="font-bold text-lg text-brand-dark mb-2">Desain Label & Packaging</h3>
+                        <p class="text-xs text-brand-textMuted leading-relaxed">Tampilan stiker, box, standing pouch, atau hangtag dengan ukuran standar pabrik percetakan.</p>
+                    </div>
+                    <div class="bg-brand-cream p-6 rounded-2xl border border-brand-creamBorder">
+                        <i class="fa-solid fa-camera text-3xl text-brand-dark mb-4"></i>
+                        <h3 class="font-bold text-lg text-brand-dark mb-2">Fotografi & Katalog PDF</h3>
+                        <p class="text-xs text-brand-textMuted leading-relaxed">Pengambilan foto produk menarik dan penyusunan e-catalog PDF interaktif untuk calon buyer.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FITUR UTAMA 5: FAQ & PERTANYAAN UMUM INTERAKTIF (ACCORDION) -->
+        <section id="faq" class="py-20 bg-brand-cream border-t border-brand-creamBorder">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="px-3.5 py-1.5 rounded-full bg-brand-medium/10 text-brand-dark text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-circle-question mr-1"></i> Tanya Jawab FAQ
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mt-3 mb-3">
+                        Pertanyaan Yang Sering Diajukan
+                    </h2>
+                    <p class="text-brand-textMuted text-sm">
+                        Temukan jawaban cepat atas pertanyaan seputar teknis desain, revisi, dan legalitas.
+                    </p>
+                </div>
+
+                <!-- Accordion List -->
+                <div class="space-y-4">
+                    
+                    <!-- FAQ 1 -->
+                    <div class="bg-white rounded-2xl border border-brand-creamBorder overflow-hidden">
+                        <button onclick="toggleFaq(1)" class="w-full p-5 text-left font-bold text-brand-dark text-sm sm:text-base flex justify-between items-center focus:outline-none">
+                            <span>Format file apa saja yang akan saya dapatkan setelah pengerjaan selesai?</span>
+                            <i class="fa-solid fa-chevron-down text-brand-accent transition-transform duration-300" id="faqIcon1"></i>
+                        </button>
+                        <div id="faqBody1" class="hidden p-5 pt-0 text-xs text-brand-textMuted border-t border-gray-100 leading-relaxed">
+                            Anda akan menerima file master vector lengkap siap cetak maupun digital: Vector Master (.AI / .EPS / .SVG), PDF High-Resolution, PNG Transparan tanpa background, serta JPG HD.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="bg-white rounded-2xl border border-brand-creamBorder overflow-hidden">
+                        <button onclick="toggleFaq(2)" class="w-full p-5 text-left font-bold text-brand-dark text-sm sm:text-base flex justify-between items-center focus:outline-none">
+                            <span>Berapa kali batas revisi desain yang diperbolehkan?</span>
+                            <i class="fa-solid fa-chevron-down text-brand-accent transition-transform duration-300" id="faqIcon2"></i>
+                        </button>
+                        <div id="faqBody2" class="hidden p-5 pt-0 text-xs text-brand-textMuted border-t border-gray-100 leading-relaxed">
+                            Setiap paket sudah mencakup 2 hingga 3 kali kesempatan revisi minor (perubahan warna, posisi elemen, atau jenis huruf) setelah draf konsep awal diserahkan.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="bg-white rounded-2xl border border-brand-creamBorder overflow-hidden">
+                        <button onclick="toggleFaq(3)" class="w-full p-5 text-left font-bold text-brand-dark text-sm sm:text-base flex justify-between items-center focus:outline-none">
+                            <span>Apakah bisa melakukan sesi konsultasi atau foto produk tatap muka di Yogyakarta?</span>
+                            <i class="fa-solid fa-chevron-down text-brand-accent transition-transform duration-300" id="faqIcon3"></i>
+                        </button>
+                        <div id="faqBody3" class="hidden p-5 pt-0 text-xs text-brand-textMuted border-t border-gray-100 leading-relaxed">
+                            Bisa! Khusus wilayah Daerah Istimewa Yogyakarta (Sleman, Bantul, Kota Jogja, Kulon Progo, Gunungkidul), tim kami menyediakan opsi *Free On-Site Meetup* atau pengambilan sampel produk langsung.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="bg-white rounded-2xl border border-brand-creamBorder overflow-hidden">
+                        <button onclick="toggleFaq(4)" class="w-full p-5 text-left font-bold text-brand-dark text-sm sm:text-base flex justify-between items-center focus:outline-none">
+                            <span>Apakah logo buatan Srawung aman didaftarkan HAKI / Hak Merek?</span>
+                            <i class="fa-solid fa-chevron-down text-brand-accent transition-transform duration-300" id="faqIcon4"></i>
+                        </button>
+                        <div id="faqBody4" class="hidden p-5 pt-0 text-xs text-brand-textMuted border-t border-gray-100 leading-relaxed">
+                            Ya. Seluruh karya logo dibuat secara orisinal dari nol tanpa menjiplak template umum, sehingga aman dan siap untuk didaftarkan ke DJKI (Hak Kekayaan Intelektual).
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FITUR UTAMA 6: FORMULIR PEMESANAN & RESERVASI ON-SITE DIY -->
+        <section id="pemesanan" class="py-20 bg-brand-dark text-white relative">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <div class="bg-brand-darker rounded-3xl p-6 sm:p-10 border border-brand-medium shadow-2xl">
+                    <div class="text-center mb-10">
+                        <span class="px-3.5 py-1.5 rounded-full bg-brand-accent/20 text-brand-accent text-xs font-bold uppercase tracking-wider">
+                            Formulir Pemesanan & Reservasi
+                        </span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 mb-3">
+                            Form Pemesanan & Janji Temu DIY
+                        </h2>
+                        <p class="text-gray-300 text-sm max-w-xl mx-auto">
+                            Isi detail usaha Anda di bawah ini untuk langsung memproses pesanan atau memilih jadwal tatap muka langsung di area Jogja.
+                        </p>
+                    </div>
+
+                    <form id="orderForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="namaPemilik" class="block text-xs font-bold uppercase text-gray-300 mb-2">
+                                    Nama Pemilik UMKM <span class="text-red-400">*</span>
+                                </label>
+                                <input type="text" id="namaPemilik" required placeholder="Contoh: Budi Santoso"
+                                    class="w-full px-4 py-3 rounded-xl bg-brand-dark border border-brand-medium text-white placeholder-gray-500 focus:outline-none focus:border-brand-accent transition-colors text-sm">
+                            </div>
+
+                            <div>
+                                <label for="namaUsaha" class="block text-xs font-bold uppercase text-gray-300 mb-2">
+                                    Nama Usaha / Merek <span class="text-red-400">*</span>
+                                </label>
+                                <input type="text" id="namaUsaha" required placeholder="Contoh: Gudeg Pawon Jogja"
+                                    class="w-full px-4 py-3 rounded-xl bg-brand-dark border border-brand-medium text-white placeholder-gray-500 focus:outline-none focus:border-brand-accent transition-colors text-sm">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="sektorUsaha" class="block text-xs font-bold uppercase text-gray-300 mb-2">
+                                    Sektor Usaha UMKM <span class="text-red-400">*</span>
+                                </label>
+                                <select id="sektorUsaha" required
+                                    class="w-full px-4 py-3 rounded-xl bg-brand-dark border border-brand-medium text-white focus:outline-none focus:border-brand-accent transition-colors text-sm">
+                                    <option value="" disabled selected>-- Pilih Sektor Usaha --</option>
+                                    <option value="Kuliner (Makanan / Minuman)">Kuliner (Makanan / Minuman)</option>
+                                    <option value="Fashion / Wastra / Pakaian">Fashion / Wastra / Pakaian</option>
+                                    <option value="Kerajinan / Kriya / Handicraft">Kerajinan / Kriya / Handicraft</option>
+                                    <option value="Sektor Lainnya">Sektor Lainnya</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="metodeKonsul" class="block text-xs font-bold uppercase text-gray-300 mb-2">
+                                    Metode Diskusi Klien <span class="text-red-400">*</span>
+                                </label>
+                                <select id="metodeKonsul" required
+                                    class="w-full px-4 py-3 rounded-xl bg-brand-dark border border-brand-medium text-white focus:outline-none focus:border-brand-accent transition-colors text-sm">
+                                    <option value="Online Chat / WA">Diskusi Online Chat / WhatsApp</option>
+                                    <option value="Tatap Muka Offsite DIY (Kota Jogja/Sleman/Bantul)">Tatap Muka On-Site (Khusus Area DIY)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="deskripsiKebutuhan" class="block text-xs font-bold uppercase text-gray-300 mb-2">
+                                Deskripsi Rincian Kebutuhan <span class="text-red-400">*</span>
+                            </label>
+                            <textarea id="deskripsiKebutuhan" rows="4" required placeholder="Tuliskan rincian kebutuhan, pilihan paket, atau catatan hasil kalkulator biaya di sini..."
+                                class="w-full px-4 py-3 rounded-xl bg-brand-dark border border-brand-medium text-white placeholder-gray-500 focus:outline-none focus:border-brand-accent transition-colors text-sm"></textarea>
+                        </div>
+
+                        <!-- Form Submit Button -->
+                        <div class="pt-2">
+                            <button type="submit" class="w-full py-4 px-6 rounded-xl bg-brand-accent hover:bg-brand-accentHover text-brand-dark font-extrabold text-base shadow-xl transition-all flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                                <span>Kirim Form & Lanjut Diskusi WA</span>
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- KONTAK & LOKASI -->
+        <section id="kontak" class="py-16 bg-white border-t border-brand-creamBorder">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+                <span class="px-3.5 py-1.5 rounded-full bg-brand-cream text-brand-dark text-xs font-bold uppercase">
+                    Kontak & Wilayah
+                </span>
+                <h3 class="text-2xl font-bold text-brand-dark">Srawung Brand Hub Yogyakarta</h3>
+                <p class="text-xs text-brand-textMuted max-w-md mx-auto">
+                    Melayani seluruh wilayah Daerah Istimewa Yogyakarta: Sleman, Bantul, Kota Yogyakarta, Kulon Progo, dan Gunungkidul.
+                </p>
+                <div class="flex justify-center gap-6 text-sm pt-2 text-brand-dark font-bold">
+                    <span><i class="fa-brands fa-whatsapp text-emerald-600 mr-1"></i> +62 812-3456-7890</span>
+                    <span><i class="fa-brands fa-instagram text-pink-600 mr-1"></i> @srawungbrand.hub</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-darker text-white py-8 border-t border-brand-medium/40 text-center text-xs text-gray-400">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>&copy; 2026 Srawung Brand Hub DIY. Platform Layanan Branding UMKM Terpadu.</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="#pemesanan" class="fixed bottom-6 right-6 z-50 bg-emerald-600 hover:bg-emerald-500 text-white p-4 rounded-full shadow-2xl transition-all transform hover:scale-110 flex items-center justify-center group" aria-label="WhatsApp Hotline">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+        <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 ease-in-out text-xs font-bold pl-0 group-hover:pl-2">
+            Konsultasi Fast Response
+        </span>
+    </a>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // 1. Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if(mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = 'fa-solid fa-bars text-xl';
+            } else {
+                menuIcon.className = 'fa-solid fa-xmark text-xl';
+            }
+        });
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.className = 'fa-solid fa-bars text-xl';
+            });
+        });
+
+        // 2. Interactive Branding Assistant (Konsultasi Instan Tanpa WA)
+        let currentDiagnosisData = null;
+
+        function generateInstantDiagnosis(event) {
+            event.preventDefault();
+            
+            const sektor = document.getElementById('diagSektor').value;
+            const kendala = document.getElementById('diagKendala').value;
+            const budget = document.getElementById('diagBudget').value;
+
+            const resBox = document.getElementById('diagnosisResult');
+            const resTitle = document.getElementById('resTitle');
+            const resWaktu = document.getElementById('resWaktu');
+            const resPaketText = document.getElementById('resPaketText');
+            const resStrategiText = document.getElementById('resStrategiText');
+
+            let paketTitle = "Paket Standard Branding";
+            let pengerjaan = "4 - 6 Hari Kerja";
+            let paketDesc = "";
+            let strategiDesc = "";
+
+            // Rules Engine Diagnosa
+            if (kendala === 'belum_ada_logo' || budget === 'hemat') {
+                paketTitle = "Paket Basic + Identitas Visual";
+                pengerjaan = "3 - 4 Hari Kerja";
+                paketDesc = "Direkomendasikan fokus pada pembuatan Logo Master Vector, Palet Warna Merek, & Elemen Tipografi agar usaha Anda memiliki identitas resmi yang tidak pasaran.";
+                strategiDesc = "Utamakan logo yang fleksibel (mudah dicetak stiker kecil maupun banner). Gunakan maksimal 2 kombinasi warna khas lokal agar hemat biaya cetak awal.";
+            } else if (kendala === 'kemasan_biasa' || sektor === 'kuliner') {
+                paketTitle = "Paket Standard (Kemasan & Label Foil)";
+                pengerjaan = "5 - 7 Hari Kerja";
+                paketDesc = "Fokus pada Re-design Kemasan (Pouch / Box / Botol Jar) lengkap dengan pola potong (dieline) cetak presisi serta e-katalog produk digital.";
+                strategiDesc = "Sektor kuliner sangat bergantung pada visual kemasan yang higienis dan menggugah selera. Sertukan informasi nilai gizi transparan dan stiker seal keamanan produk.";
+            } else if (budget === 'lengkap' || kendala === 'rebranding') {
+                paketTitle = "Paket Premium Re-Branding Total";
+                pengerjaan = "7 - 10 Hari Kerja";
+                paketDesc = "Transformasi identitas visual menyeluruh: Logo baru, Dieline kemasan lengkap, Sesi foto studio produk, & Template konten Instagram grid.";
+                strategiDesc = "Lakukan konsistensi warna di semua titik kontak pembeli (Packaging, Feed Instagram, & Hangtag). Manfaatkan storytelling nilai lokalitas Jogja.";
+            } else {
+                paketTitle = "Paket Standard Branding & Medsos";
+                pengerjaan = "5 Hari Kerja";
+                paketDesc = "Paket seimbang meliputi logo utama, desain label produk, dan template media sosial Canva.";
+                strategiDesc = "Rapikan tampilan foto katalog digital agar calon pelanggan merasa percaya sebelum membeli.";
+            }
+
+            // Render Output
+            resTitle.innerText = paketTitle;
+            resWaktu.innerText = pengerjaan;
+            resPaketText.innerHTML = paketDesc;
+            resStrategiText.innerHTML = strategiDesc;
+
+            resBox.classList.remove('hidden');
+
+            // Save state for optional WA forwarding
+            currentDiagnosisData = {
+                sektor, kendala, budget, paketTitle, pengerjaan
+            };
+        }
+
+        function forwardDiagnosisToWA() {
+            if (!currentDiagnosisData) return;
+            const waNumber = "6281234567890";
+            const text = `Halo Srawung Brand Hub, saya telah mencoba fitur Konsultasi Instan di website:
+
+• Sektor: ${currentDiagnosisData.sektor}
+• Kendala: ${currentDiagnosisData.kendala}
+• Hasil Rekomendasi Web: *${currentDiagnosisData.paketTitle}* (${currentDiagnosisData.pengerjaan})
+
+Saya ingin berdiskusi lebih lanjut untuk memesan paket ini.`;
+            
+            window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        // 3. Interactive Pricing Estimator (Kalkulator Biaya Kustom)
+        function calculateTotal() {
+            const checkboxes = document.querySelectorAll('.calc-checkbox');
+            const itemsList = document.getElementById('selectedItemsList');
+            const totalDisplay = document.getElementById('calcTotalDisplay');
+            
+            let total = 0;
+            let selectedHtml = '';
+
+            checkboxes.forEach(cb => {
+                if (cb.checked) {
+                    const name = cb.getAttribute('data-name');
+                    const price = parseInt(cb.getAttribute('data-price'));
+                    total += price;
+                    selectedHtml += `<li class="flex justify-between items-center">
+                        <span>• ${name}</span>
+                        <span class="font-bold text-brand-accent">Rp ${price.toLocaleString('id-ID')}</span>
+                    </li>`;
+                }
+            });
+
+            if (total === 0) {
+                itemsList.innerHTML = '<li class="italic text-gray-400">Belum ada item yang dipilih. Silakan centang opsi di samping.</li>';
+            } else {
+                itemsList.innerHTML = selectedHtml;
+            }
+
+            totalDisplay.innerText = 'Rp ' + total.toLocaleString('id-ID');
+        }
+
+        function applyCustomCalcToForm() {
+            const checkboxes = document.querySelectorAll('.calc-checkbox');
+            let selectedNames = [];
+            let total = 0;
+
+            checkboxes.forEach(cb => {
+                if (cb.checked) {
+                    selectedNames.push(cb.getAttribute('data-name'));
+                    total += parseInt(cb.getAttribute('data-price'));
+                }
+            });
+
+            if (selectedNames.length === 0) {
+                alert('Silakan pilih minimal 1 komponen layanan di kalkulator terlebih dahulu.');
+                return;
+            }
+
+            const descInput = document.getElementById('deskripsiKebutuhan');
+            descInput.value = `[Hasil Kalkulator Biaya Kustom - Total: Rp ${total.toLocaleString('id-ID')}]\nItem terpilih:\n- ` + selectedNames.join('\n- ');
+            
+            document.getElementById('pemesanan').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 4. Interactive Before & After Drag Slider Logic
+        function setupBeforeAfterSlider(containerId, handleId, overlayId) {
+            const handle = document.getElementById(handleId);
+            const overlay = document.getElementById(overlayId);
+
+            if (!handle || !overlay) return;
+
+            let isDragging = false;
+
+            const onMove = (clientX) => {
+                const container = handle.parentElement;
+                const rect = container.getBoundingClientRect();
+                let x = clientX - rect.left;
+                if (x < 0) x = 0;
+                if (x > rect.width) x = rect.width;
+
+                const percent = (x / rect.width) * 100;
+                handle.style.left = percent + '%';
+                overlay.style.width = percent + '%';
+            };
+
+            handle.addEventListener('mousedown', () => isDragging = true);
+            window.addEventListener('mouseup', () => isDragging = false);
+            window.addEventListener('mousemove', (e) => {
+                if (isDragging) onMove(e.clientX);
+            });
+
+            // Touch events for mobile
+            handle.addEventListener('touchstart', () => isDragging = true);
+            window.addEventListener('touchend', () => isDragging = false);
+            window.addEventListener('touchmove', (e) => {
+                if (isDragging && e.touches[0]) onMove(e.touches[0].clientX);
+            });
+        }
+
+        setupBeforeAfterSlider('baContainer1', 'sliderHandle1', 'sliderOverlay1');
+        setupBeforeAfterSlider('baContainer2', 'sliderHandle2', 'sliderOverlay2');
+
+        // 5. FAQ Accordion Toggle
+        function toggleFaq(index) {
+            const body = document.getElementById(`faqBody${index}`);
+            const icon = document.getElementById(`faqIcon${index}`);
+
+            if (body.classList.contains('hidden')) {
+                body.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                body.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // 6. Form Submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const namaPemilik = document.getElementById('namaPemilik').value.trim();
+            const namaUsaha = document.getElementById('namaUsaha').value.trim();
+            const sektorUsaha = document.getElementById('sektorUsaha').value;
+            const metodeKonsul = document.getElementById('metodeKonsul').value;
+            const deskripsiKebutuhan = document.getElementById('deskripsiKebutuhan').value.trim();
+
+            const waNumber = "6281234567890";
+            const messageText = 
+`Halo Srawung Brand Hub, saya ingin memproses pesanan / janji temu branding.
+
+*Detail Pemesan:*
+• *Nama Pemilik:* ${namaPemilik}
+• *Nama Usaha:* ${namaUsaha}
+• *Sektor:* ${sektorUsaha}
+• *Metode Diskusi:* ${metodeKonsul}
+
+*Rincian Kebutuhan:*
+"${deskripsiKebutuhan}"`;
+
+            window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(messageText)}`, '_blank');
+        }
+    </script>
+</body>
+</html>
